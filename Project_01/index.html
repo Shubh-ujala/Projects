@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <h2>Quote of the Day</h2>
+        <blockquote id ="content">Loading...</blockquote>
+        <span id = "author">Loading...</span>
+        <div id="btns">
+            <button id="quotes">New Quote</button>
+            <button id="tweet"><img src="tweet.png" id="image">Tweet</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    const blockquote = document.querySelector('blockquote');
+    
+    const hideContent = document.getElementById("content")
+    hideContent.style.display = "none";
+
+    const hideAuthor = document.getElementById("author");
+    hideAuthor.style.display = "none";
+   
+    const author = document.querySelector('span');
+    const api_url = "https://dummyjson.com/quotes/random"
+    async function writeQuote(url){
+        const response = await fetch(url)
+        var data = await response.json();
+        document.querySelector('blockquote').innerHTML = data.quote;
+        document.querySelector('span').innerHTML = data.author
+        blockquote.style.display = "block";
+        hideAuthor.style.display = "block";
+        
+        
+    }
+    
+
+    const newQuoteBtn = document.querySelector('#quotes');
+    const tweetBtn = document.querySelector("#tweet");
+
+    newQuoteBtn.addEventListener('click',()=>{
+        writeQuote(api_url);
+        
+    })
+    tweetBtn.addEventListener('click',tweetNow)
+
+    function tweetNow (){
+        window.open("https://twitter.com/intent/tweet?text="+blockquote.innerHTML+"---- by "+author.innerHTML,"Tweet Window","width=600px","height=300px");
+        // window.open(`https://twitter.com/intent/tweet?text="${blockquote.innerHTML} --by ${author.innerHTML} "Tweet Window","width=600px","height=300px`);
+    }
+    // console.log(blockquote.innerHTML);
+    // console.log(author.innerHTML);
+    
+</script>
+
+</html>
