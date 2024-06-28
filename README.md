@@ -8,7 +8,7 @@
 <img align="right" alt="Coding" width="480" height= "300" src="https://github.com/Shubh-ujala/Projects/assets/166637739/e1de8514-7f01-44cb-b49f-f11080fe085a">
 <br>
 
-# Project_02
+
 <!-- ![Screenshot 2024-06-27 194423](https://github.com/Shubh-ujala/Projects/assets/166637739/e1de8514-7f01-44cb-b49f-f11080fe085a) -->
 
 
